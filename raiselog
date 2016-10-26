@@ -51,10 +51,10 @@ echo
 
 if [ ! -z "${s}" ]; then
     echo "System code specified: ${s}"
-	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci?systemCode=${s})
+	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci?systemCode=${s})
 else
     echo "Using repository name as system code: $CIRCLE_PROJECT_REPONAME"
-	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci)
+	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci)
 fi
 
 if [[ "${RESULT}" == *"error"* ]] || [[ "${RESULT}" == *"Forbidden"* ]]; then
