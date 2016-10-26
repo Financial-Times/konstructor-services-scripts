@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 usage() {
      echo "******************************************"
@@ -59,7 +60,7 @@ fi
 
 if [[ "${RESULT}" == *"error"* ]] || [[ "${RESULT}" == *"Forbidden"* ]]; then
     echo "Error : ${RESULT}"
-    exit $E_EACCESS # Follows the convention of statfs; see statfs(2) and path_resolution(7) in the manual
+    exit 1
 fi
 
  echo "Release Log Raised : ${RESULT}"
