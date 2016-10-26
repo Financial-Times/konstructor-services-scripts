@@ -20,7 +20,8 @@ An example being:
       production:
         branch: master
         commands:
-          - wget -O - https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog | bash	
+          - 
+          -  bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog) 	
 
 The script also accepts a parameter to specify the system code.  By default the script will use your repository name as the system code but this isn't always appropriate.
 
@@ -30,7 +31,7 @@ To specify a system code:
       production:
         branch: master
         commands:
-          - wget -O - https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog | bash -s yourSystemCode
+          -  bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog) -s yourSystemCode
 
 That is it!
 
