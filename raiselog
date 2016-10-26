@@ -54,17 +54,13 @@ if [ ! -z "${v}" ]; then
 fi
 
 if [ ! -z "${s}" ]; then
-	echo here
 	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci?systemCode=${s})
-	echo $RESULT
 else
-	echo 2
 	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci)
-	echo $RESULT
 fi
 
-if [[ "${RESULT}" == *"error"* ]]; then
-    echo "${RESULT}"
+if [[ "${RESULT}" == *"error"* ]] || [[ "${RESULT}" == *"Forbidden"* ]]; then
+    echo "Error : ${RESULT}"
     exit $E_EACCESS # Follows the convention of statfs; see statfs(2) and path_resolution(7) in the manual
 fi
 
