@@ -1,0 +1,55 @@
+#!/bin/bash
+set -e
+
+usage() {
+     echo "***************************************"
+     echo "Konstructor Service Registration Script"
+     echo "***************************************"
+     echo
+     echo "Usage: $0 [-f <string>]"
+	 echo
+     echo "Optional:"
+     echo
+     echo "-f Specify the konstructor json filename"
+     echo
+     echo "Example uses:"
+     echo
+     echo "  register_service -f .konstructor"
+     echo
+}
+
+
+while getopts ":f:h" opt; do
+    case $opt in
+
+        f)
+            f=${OPTARG}
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+
+        *)
+            usage
+            exit 0
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+if [ ! -f "${f}" ]; then
+   exit 1
+fi
+
+echo "Konstructor Service being registered.  File : ${f}"
+
+RESULT=$(curl -sb -f -X POST https://registry-api.in.ft.com/v1/register -d @${f} --header "Content-Type: application/json" --header "x-api-key: $KONSTRUCTOR_REGISTRY_KEY")
+
+if [[ "${RESULT}" == *"error"* ]] || [[ "${RESULT}" == *"Forbidden"* ]]; then
+    echo "Error : ${RESULT}"
+    exit 1
+fi
+
+ echo "Service registered : ${RESULT}"

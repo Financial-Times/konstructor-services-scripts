@@ -32,16 +32,20 @@ for arg in "$@"; do
   esac
 done
 
-while getopts ":s:v" z; do
-    case "${z}" in
+while getopts ":s:h" opt; do
+    case $opt in
+
         s)
             s=${OPTARG}
             ;;
-        v)
-            v="true"
+        h)
+            usage
+            exit 0
             ;;
+
         *)
             usage
+            exit 0
             ;;
     esac
 done
