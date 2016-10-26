@@ -6,7 +6,6 @@ usage() {
      echo "******************************************"
      echo
      echo "Usage: $0 [-s <string>]"
-     echo "          [-v]"
 	 echo
      echo "Optional:"
      echo
@@ -28,7 +27,6 @@ for arg in "$@"; do
   shift
   case "$arg" in
     "--systemcode")  set -- "$@" "-s" ;;
-    "--verbose")    set -- "$@" "-v" ;;
     *)              set -- "$@" "$arg"
   esac
 done
@@ -48,14 +46,14 @@ while getopts ":s:v" z; do
 done
 shift $((OPTIND-1))
 
-if [ ! -z "${v}" ]; then
-    echo
+echo
     echo "Creating Release Log.."
-fi
 
 if [ ! -z "${s}" ]; then
+    echo "System code specified: ${s}"
 	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci?systemCode=${s})
 else
+    echo "Using repository name as system code: $CIRCLE_PROJECT_REPONAME"
 	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci)
 fi
 
@@ -64,7 +62,4 @@ if [[ "${RESULT}" == *"error"* ]] || [[ "${RESULT}" == *"Forbidden"* ]]; then
     exit $E_EACCESS # Follows the convention of statfs; see statfs(2) and path_resolution(7) in the manual
 fi
 
-
-if [ ! -z "${v}" ]; then
  echo "Release Log Raised : ${RESULT}"
-fi
