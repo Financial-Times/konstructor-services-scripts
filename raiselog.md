@@ -4,7 +4,7 @@ This script will raise a release log record for the service being deployed.
 
 To configure:
 
-1. Ensure you have generated a system code in Salesforce.  You can do this with http://konstructor.svc.ft.com by simply entering a name for your service (to make things easier it could be called after your repository name), a description and short description.
+1. Ensure you have generated a system code in Salesforce.  You can do this with [old Konstructor service](http://konstructor.svc.ft.com/swagger#!/CMDB/addAsset) by simply entering a name for your service (to make things easier it could be called after your repository name), a description and short description.
     Tip: System code should be lower case, no spaces.
     
 2. Now create an API Key for the Change Request API.  To do this type `key generator` within a public slack channel and follow the link.
