@@ -11,7 +11,15 @@ To configure:
 
 3. Add the API Key to your environment variables section within Circle CI UI (not the circle.yml file!).  The key should be called `RELEASE_LOG_KEY`
 
-4. Ideally the release log should be raised once your deployment has been successful.  The circle.yml file contains a deployment section and this is the preferred location though you are free to place it where you see appropriate. 
+4. If your Github repository is `private` you need to generate an API Token for Circle CI.  If its `public` go to point 5.
+
+    a. Within Circle CI - Edit the build settings and click `Api Permissions`.
+    
+    b. Click `Create Token`, Select `build artifacts` from the dropdown and give it a meaningful name - suggestion is `RELEASE_LOG_ACCESS_KEY`
+    
+    c. Add the key to your environment variables section within Circle CI UI (not the circle.yml file!).  The key should be called `CIRCLE_API_KEY`
+
+5. Ideally the release log should be raised once your deployment has been successful.  The circle.yml file contains a deployment section and this is the preferred location though you are free to place it where you see appropriate. 
 
 An example being:
 
