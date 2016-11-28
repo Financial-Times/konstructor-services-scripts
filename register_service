@@ -6,7 +6,7 @@ usage() {
      echo "Konstructor Service Registration Script"
      echo "***************************************"
      echo
-     echo "Usage: $0 [-f <string>]"
+     echo "Usage: $0 [-f <string>] [-v <string>]"
 	 echo
      echo "Optional:"
      echo
@@ -16,14 +16,19 @@ usage() {
      echo
      echo "  register_service -f .konstructor"
      echo
+     echo "  register_service -f .konstructor -v 1.0.0"
+     echo
 }
 
 
-while getopts ":f:h" opt; do
+while getopts ":f:v:h" opt; do
     case $opt in
 
         f)
             f=${OPTARG}
+            ;;
+        v)
+            v=${OPTARG}
             ;;
         h)
             usage
@@ -40,8 +45,11 @@ shift $((OPTIND-1))
 
 
 if [ ! -f "${f}" ]; then
+   echo "No file specified. Exiting."
    exit 1
 fi
+
+sed -i -e "s/{{version}}/${v}/g" ${f}
 
 echo "Konstructor Service being registered.  File : ${f}"
 
@@ -52,4 +60,4 @@ if [[ "${RESULT}" == *"error"* ]] || [[ "${RESULT}" == *"Forbidden"* ]]; then
     exit 1
 fi
 
- echo "Service registered : ${RESULT}"
+echo "Service registered : ${RESULT}"

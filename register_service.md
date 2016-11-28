@@ -21,6 +21,23 @@ Example:
          - bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f .konstructor
      
 Note: Your service file is usually .konstructor     
+
+Optional: 
+
+If you wish to dynamically specify a version within your definition file - modify the version field in your definition file to:
+
+    "version" : "{{version}}"
+
+The specify `-v <your version>` in your call
+    
+ Example:
+      
+      checkout:
+        post:
+          - bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f .konstructor -v <your value>
+      
+   
+    
     
 Conditions of use:
 
