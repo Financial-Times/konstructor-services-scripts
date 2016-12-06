@@ -2,7 +2,7 @@
 
  This script will enable you to register your service, api, script, documentation, etc which the Konstrutor Registry Service.
  
-To configure:
+To configure for Circle CI:
 
 1. Create an API Key for the Registry API.  To do this type `key generator` within a public slack channel and follow the link.
 
@@ -21,6 +21,13 @@ Example:
          - bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f .konstructor
      
 Note: Your service file is usually .konstructor     
+
+To configure for Jenkins:
+
+1. Ensure in your deployment process you clone the github repository (if you dont already)
+2. Within your 'execute script' the first line must be '#!/bin/bash'
+3. Enter the same command as above in your 'execute script'
+    bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f <your service file>
 
 Optional: 
 
