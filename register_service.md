@@ -97,36 +97,36 @@ Optional entry to link to a Jira/Github/Trello/Salesforce ticketing page to rais
 
 **API** 
 
- {
-   "name": "Konstructor Version API",
-   "description": "An API to provide easy, stateful semantic versioning.",
-   "systemCode":"konversionapi",
-   "version" : "1.0.0",
-   "type": "api", 
-   "locationUrl": "https://github.com/Financial-Times/lambda-version-api",
-   "status": "active", 
-   "serviceUrl": "https://konstructor.in.ft.com/swagger.html?url=../versionapi.json",
-   "tags": "build"
- }
+	{
+			"name": "Konstructor Version API",
+			"description": "An API to provide easy, stateful semantic versioning.",
+			"systemCode":"konversionapi",
+			"version" : "1.0.0",
+			"type": "api", 
+			"locationUrl": "https://github.com/Financial-Times/lambda-version-api",
+			"status": "active", 
+			"serviceUrl": "https://konstructor.in.ft.com/swagger.html?url=../versionapi.json",
+			"tags": "build"
+	}
 
 **Script** 
 
- {
-   "name": "Konstructor Service Scripts",
-   "description": "A set of scripts to enable easy use of the Konstructor Service APIs",
-   "version" : "1.0.0",
-   "type": "script", 
-   "locationUrl": "http://git.svc.ft.com/projects/FTT/repos/konstructor-scripts/browse"
-   "status": "active"
- }
+	{
+			"name": "Konstructor Service Scripts",
+			"description": "A set of scripts to enable easy use of the Konstructor Service APIs",
+			"version" : "1.0.0",
+			"type": "script", 
+			"locationUrl": "http://git.svc.ft.com/projects/FTT/repos/konstructor-scripts/browse"
+			"status": "active"
+	}
 
 **Document** 
 
- {
-   "name": "Engineer Checklist",
-   "description": "The FT engineering checklist",
-   "version" : "2.0.0",
-   "type": "doc", 
-   "locationUrl": "https://sites.google.com/a/ft/tech/org/engineering/-engineering-checklist"
-   "status": "active"
- }
+	{
+			"name": "Engineer Checklist",
+			"description": "The FT engineering checklist",
+			"version" : "2.0.0",
+			"type": "doc", 
+			"locationUrl": "https://sites.google.com/a/ft/tech/org/engineering/-engineering-checklist"
+			"status": "active"
+	}
