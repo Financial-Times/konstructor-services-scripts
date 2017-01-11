@@ -54,7 +54,7 @@ Conditions of use:
 ## Definition File:
 
 The definition file should be ideally be called *.konstructor* and placed in the root of your git repository.  But you
-are free to do what you wish.   If you are populating a non-code based link - see the git project [catalogue entries(http://git.svc.ft.com/projects/KON/repos/catalogue-entries/browse).
+are free to do what you wish.   If you are populating a non-code based link - see the git project [catalogue entries](http://git.svc.ft.com/projects/KON/repos/catalogue-entries/browse).
 
 The definition file supports the following entries:
 
