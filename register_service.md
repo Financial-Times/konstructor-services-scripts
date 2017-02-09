@@ -8,7 +8,7 @@ To configure for Circle CI:
 
 2. Add the API Key to your environment variables section within Circle CI UI (not the circle.yml file!).  The key should be called `KONSTRUCTOR_REGISTRY_KEY`
 
-3. You will then need to add the folling command somewhere appropriate within your circle.yml file. 
+3. You will then need to add the following command somewhere appropriate within your circle.yml file. 
 
     
     bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f <your service file>
