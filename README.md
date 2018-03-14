@@ -2,7 +2,7 @@
 
 A set of useful scripts to help integrate with Konstructor Services.
 
-Available scripts"
+Available scripts:
 
  - [raiselog](raiselog.md) 
  - [register_service](register_service.md)
