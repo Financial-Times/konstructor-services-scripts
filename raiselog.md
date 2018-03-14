@@ -23,22 +23,26 @@ To configure:
 
 An example being:
 
-    deployment:
-      production:
-        branch: master
-        commands:
-          - 
-          -  bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog) 	
+```yaml
+deployment:
+  production:
+    branch: master
+    commands:
+      - 
+      -  bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog) 	
+```
 
 The script also accepts a parameter to specify the system code.  By default the script will use your repository name as the system code but this isn't always appropriate.
 
 To specify a system code:
 
-    deployment:
-      production:
-        branch: master
-        commands:
-          -  bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog) -s yourSystemCode
+```yaml
+deployment:
+  production:
+    branch: master
+    commands:
+      -  bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/raiselog) -s yourSystemCode
+```
 
 That is it!
 
