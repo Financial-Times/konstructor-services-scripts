@@ -19,9 +19,9 @@ bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-ser
 Example:
 
 ```yaml
-     checkout:
-       post:
-         - bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f .konstructor
+checkout:
+post:
+ - bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f .konstructor
 ```
      
 Note: Your service file is usually `.konstructor`   
@@ -44,9 +44,9 @@ The specify `-v <your version>` in your call
  Example:
 
 ```yaml
-      checkout:
-        post:
-          - bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f .konstructor -v <your value>
+checkout:
+post:
+  - bash <(curl -s https://raw.githubusercontent.com/Financial-Times/konstructor-services-scripts/master/register_service) -f .konstructor -v <your value>
 ```
    
     
@@ -124,7 +124,7 @@ Optional entry to link to a Jira/Github/Trello/Salesforce ticketing page to rais
 	"description": "A set of scripts to enable easy use of the Konstructor Service APIs",
 	"version" : "1.0.0",
 	"type": "script", 
-	"locationUrl": "http://git.svc.ft.com/projects/FTT/repos/konstructor-scripts/browse"
+	"locationUrl": "http://git.svc.ft.com/projects/FTT/repos/konstructor-scripts/browse",
 	"status": "active"
 }
 ```
@@ -137,7 +137,7 @@ Optional entry to link to a Jira/Github/Trello/Salesforce ticketing page to rais
 	"description": "The FT engineering checklist",
 	"version" : "2.0.0",
 	"type": "doc", 
-	"locationUrl": "https://sites.google.com/a/ft/tech/org/engineering/-engineering-checklist"
+	"locationUrl": "https://sites.google.com/a/ft/tech/org/engineering/-engineering-checklist",
 	"status": "active"
 }
 ```
