@@ -59,6 +59,11 @@ if [ -z "$RELEASE_LOG_KEY" ]; then
    exit 1
 fi
 
+if [ -z "$CIRCLE_API_KEY" ]; then
+   >&2 echo "CIRCLE_API_KEY was not defined. Exiting."
+   exit 1
+fi
+
 if [ ! -z "${s}" ]; then
     echo "System code specified: ${s}"
 	RESULT=$(curl -sb -f --raw https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM?circle-token=$CIRCLE_API_KEY | curl -sb -f -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "x-api-key: $RELEASE_LOG_KEY" -d @- https://cr-api.in.ft.com/v2/circleci?systemCode=${s})
