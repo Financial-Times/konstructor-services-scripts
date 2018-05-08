@@ -60,8 +60,12 @@ if [ -z "$RELEASE_LOG_KEY" ]; then
 fi
 
 if [ -z "$CIRCLE_API_KEY" ]; then
-   >&2 echo "CIRCLE_API_KEY was not defined. Exiting."
-   exit 1
+   if [ -n "$CIRCLE_TOKEN" ]; then
+      CIRCLE_API_KEY=$CIRCLE_TOKEN;
+   else
+      >&2 echo "CIRCLE_API_KEY was not defined. Exiting."
+      exit 1
+   fi
 fi
 
 if [ ! -z "${s}" ]; then
